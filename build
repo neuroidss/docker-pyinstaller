@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+USER=neuroidss
+NAME=pyinstaller
+VERSION=py3.9.13-ub22.04
+
+for arch in amd64; do
+#for arch in arm64; do
+#for arch in amd64 arm64; do
+#for arch in riscv64; do
+#for arch in arm; do
+#for arch in amd64 arm64 riscv64; do
+#for arch in amd64 arm64 arm riscv64; do
+#  docker build -f Dockerfile-py3.${arch} -t $USER/$NAME:${arch}-$VERSION . 
+#  docker buildx build --platform linux/${arch} -f Dockerfile-py3-win64.${arch} -t $USER/$NAME:${arch}-$VERSION . 
+  docker buildx build --platform linux/${arch} -f Dockerfile-py3.${arch} -t $USER/$NAME:${arch}-$VERSION . --push
+done
